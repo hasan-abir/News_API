@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css?family=Abril+Fatface");
+@import url("https://fonts.googleapis.com/css?family=Cinzel");
+@import url("https://fonts.googleapis.com/css?family=Questrial");
+@import url("https://fonts.googleapis.com/css?family=Anton");
+
+$eggplant: #50312f;
+$seaweedGreen: #6e6702;
+$bronze: #92482b;
+$goldenrod: #db9501;
+
+body {
+  margin: 0;
+  background: $eggplant;
+  overflow-x: hidden;
+}
+
+h1::selection,
+h2::selection,
+h3::selection,
+p::selection,
+label::selection,
+select::selection {
+  color: #fff;
+  background: darkslateblue;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 1rem;
+
+  h1 {
+    font-size: 2.2rem;
+    font-family: "Abril Fatface", cursive;
+    margin-bottom: 0.5rem;
+    color: $goldenrod;
+    letter-spacing: 0.1rem;
+    display: inline-block;
+
+    &:after {
+      content: "";
+      display: block;
+      background: $goldenrod;
+      width: 50%;
+      height: 2px;
+      margin: 0 auto;
+    }
+  }
+
+  p {
+    margin-bottom: 3rem;
+    color: $goldenrod;
+    font-size: 0.8rem;
+    font-family: "Cinzel", serif;
+  }
+
+  form {
+    width: 90%;
+    position: relative;
+    background: $goldenrod;
+    border-bottom: 10px solid $bronze;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 2rem 0.5rem;
+    font-family: "Questrial", sans-serif;
+
+    label {
+      display: block;
+      margin: 1rem 0;
+      color: lighten($eggplant, 25%);
+    }
+    select {
+      font-family: "Questrial", sans-serif;
+      background: $bronze;
+      color: lighten($goldenrod, 35%);
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      padding: 0.2rem;
+      display: block;
+      width: 80%;
+      margin: 0 auto;
+      outline: none !important;
+    }
+
+    button {
+      cursor: pointer;
+      font-family: "Questrial", sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      background: $eggplant;
+      color: $goldenrod;
+      width: 80%;
+      margin-top: 2rem;
+      padding: 0.5rem 0;
+      border: 5px solid $eggplant;
+      border-radius: 5px;
+      transition: all 0.2s;
+      outline: 0 !important;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+
+      &:active,
+      &:hover {
+        transform: scale(0.9);
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+.article-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+
+  .article {
+    background: $goldenrod;
+    padding: 1rem;
+    margin: 1rem;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    color: $eggplant;
+    font-family: "Questrial", sans-serif;
+    animation-name: article;
+    animation-duration: 3s;
+
+    h2 {
+      font-family: "Cinzel", serif;
+    }
+
+    .author {
+      text-align: right;
+      border-bottom: 5px solid $bronze;
+      font-weight: 700;
+      overflow-wrap: break-word;
+    }
+
+    img {
+      display: block;
+      border-top: 10px solid $eggplant;
+      border-bottom: 10px solid $eggplant;
+    }
+
+    a {
+      text-decoration: none;
+      color: $goldenrod;
+      background: $eggplant;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      display: inline-block;
+      transition: all 0.3s;
+
+      &:hover,
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes article {
+  0% {
+    opacity: 0;
+    transform: translateX(-500px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
