@@ -1,52 +1,56 @@
-import React, { Component } from "react"
-import Article from "./components/Article"
-import Header from "./components/Header"
-import "./App.scss"
+import React, { Component } from 'react';
+import Article from './components/Article';
+import Search from './components/Search';
+import './App.scss';
 
 class App extends Component {
   state = {
     articles: [],
-    category: "business",
-    country: "us",
-    limit: "20",
+    category: 'business',
+    country: 'us',
+    limit: '20',
     loading: false
-  }
+  };
 
-  submitQueries = e => {
-    e.preventDefault()
+  submitQueries = (e) => {
+    e.preventDefault();
 
     this.setState({
       loading: true
-    })
+    });
 
     fetch(
       `https://newsapi.org/v2/top-headlines?pageSize=${this.state.limit}&country=${this.state.country}&category=${this.state.category}&apiKey=${process.env.REACT_APP_API_KEY}`
     )
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         this.setState({
           loading: false,
           articles: data.articles
-        })
-      })
-  }
+        });
+      });
+  };
 
-  handleEventChange = e => {
-    const { name, value } = e.target
+  handleEventChange = (e) => {
+    const { name, value } = e.target;
 
     this.setState({
       [name]: value
-    })
-  }
+    });
+  };
 
   render() {
-    const article = this.state.articles.map(article => {
-      return <Article key={article.url} article={article} />
-    })
+    const article = this.state.articles.map((article) => {
+      return <Article key={article.url} article={article} />;
+    });
 
     return (
-      <div>
-        <Header
+      <div className="container">
+        <header>
+          <h1>News Headlines</h1>
+          <p>Find out what's going on around the world!</p>
+        </header>
+        <Search
           handleEventChange={this.handleEventChange}
           category={this.state.category}
           country={this.state.country}
@@ -60,8 +64,8 @@ class App extends Component {
           <div className="article-container">{article}</div>
         )}
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;

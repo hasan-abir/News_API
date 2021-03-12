@@ -1,15 +1,18 @@
-@import url("https://fonts.googleapis.com/css?family=Abril+Fatface");
-@import url("https://fonts.googleapis.com/css?family=Cinzel");
-@import url("https://fonts.googleapis.com/css?family=Questrial");
-@import url("https://fonts.googleapis.com/css?family=Anton");
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 $eggplant: #50312f;
 $seaweedGreen: #6e6702;
 $bronze: #92482b;
 $goldenrod: #db9501;
 
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+body {
   background: $eggplant;
   overflow-x: hidden;
 }
@@ -24,23 +27,23 @@ select::selection {
   background: darkslateblue;
 }
 
-header {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  padding: 1rem;
+.container {
+  max-width: 1024px;
+  margin: auto;
+  padding: 8rem 0;
+}
 
+header {
+  text-align: center;
   h1 {
-    font-size: 2.2rem;
-    font-family: "Abril Fatface", cursive;
+    font-size: 4rem;
     margin-bottom: 0.5rem;
     color: $goldenrod;
     letter-spacing: 0.1rem;
     display: inline-block;
 
     &:after {
-      content: "";
+      content: '';
       display: block;
       background: $goldenrod;
       width: 50%;
@@ -52,19 +55,32 @@ header {
   p {
     margin-bottom: 3rem;
     color: $goldenrod;
-    font-size: 0.8rem;
-    font-family: "Cinzel", serif;
   }
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
 
   form {
-    width: 90%;
+    width: 100%;
     position: relative;
     background: $goldenrod;
-    border-bottom: 10px solid $bronze;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    padding: 2rem 0.5rem;
-    font-family: "Questrial", sans-serif;
+    border-radius: 10px;
+    padding: 3rem 4rem;
+
+    .wrapper {
+      display: flex;
+      .input-group {
+        flex: 1;
+      }
+      .input-group:nth-child(2) {
+        margin: 0 1rem;
+      }
+    }
 
     label {
       display: block;
@@ -72,7 +88,6 @@ header {
       color: lighten($eggplant, 25%);
     }
     select {
-      font-family: "Questrial", sans-serif;
       background: $bronze;
       color: lighten($goldenrod, 35%);
       border: none;
@@ -80,30 +95,29 @@ header {
       font-size: 1.2rem;
       padding: 0.2rem;
       display: block;
-      width: 80%;
+      width: 100%;
       margin: 0 auto;
       outline: none !important;
     }
 
     button {
       cursor: pointer;
-      font-family: "Questrial", sans-serif;
       font-weight: 700;
       font-size: 1.2rem;
       background: $eggplant;
       color: $goldenrod;
-      width: 80%;
+      width: 100%;
       margin-top: 2rem;
       padding: 0.5rem 0;
       border: 5px solid $eggplant;
       border-radius: 5px;
       transition: all 0.2s;
       outline: 0 !important;
-      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
 
       &:active,
       &:hover {
-        transform: scale(0.9);
+        background: darken($eggplant, 5%);
+        border-color: darken($eggplant, 5%);
         box-shadow: none;
       }
     }
@@ -113,24 +127,22 @@ header {
 .article-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 1rem;
   flex-direction: row;
-  align-items: center;
-  padding: 1rem;
-
+  align-items: flex-start;
+  margin-top: 5rem;
   .article {
     background: $goldenrod;
-    padding: 1rem;
-    margin: 1rem;
+    padding: 2rem;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
     color: $eggplant;
-    font-family: "Questrial", sans-serif;
     animation-name: article;
     animation-duration: 3s;
+    border-radius: 5px;
 
     h2 {
-      font-family: "Cinzel", serif;
+      margin-bottom: 1.5rem;
     }
-
     .author {
       text-align: right;
       border-bottom: 5px solid $bronze;
@@ -142,20 +154,25 @@ header {
       display: block;
       border-top: 10px solid $eggplant;
       border-bottom: 10px solid $eggplant;
+      margin-bottom: 2rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
     }
 
     a {
       text-decoration: none;
       color: $goldenrod;
       background: $eggplant;
-      padding: 0.2rem 0.5rem;
+      padding: 0.5rem 1rem;
       border-radius: 3px;
       display: inline-block;
       transition: all 0.3s;
 
       &:hover,
       &:active {
-        transform: scale(0.9);
+        background: darken($eggplant, 5%);
       }
     }
   }
