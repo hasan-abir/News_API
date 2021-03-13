@@ -30,7 +30,18 @@ select::selection {
 .container {
   max-width: 1024px;
   margin: auto;
-  padding: 8rem 0;
+  padding: 8rem 1rem;
+}
+
+.top-message {
+  background: #181d36;
+  color: #fff;
+  padding: 1.5rem;
+  margin-bottom: 3rem;
+  border-radius: 5px;
+  a {
+    color: #fff;
+  }
 }
 
 header {
@@ -196,5 +207,28 @@ header {
   100% {
     opacity: 1;
     transform: translateX(0px);
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 3rem 1rem;
+  }
+  header {
+    h1 {
+      font-size: 3rem;
+      line-height: 1;
+    }
+  }
+  .search {
+    form {
+      padding: 1rem;
+      .wrapper {
+        flex-direction: column;
+        .input-group {
+          margin: 0 !important;
+        }
+      }
+    }
   }
 }

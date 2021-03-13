@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Article from './components/Article';
 import Search from './components/Search';
+import TopMessage from './components/TopMessage';
 import './App.scss';
 
 class App extends Component {
@@ -47,6 +48,7 @@ class App extends Component {
 
     return (
       <div className="container">
+        <TopMessage />
         <header>
           <h1>News Headlines</h1>
           <p>Find out what's going on around the world!</p>
