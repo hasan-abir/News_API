@@ -28,7 +28,8 @@ class App extends Component {
           loading: false,
           articles: data.articles
         });
-      });
+      })
+      .catch((err) => alert(err.message));
   };
 
   handleEventChange = (e) => {
